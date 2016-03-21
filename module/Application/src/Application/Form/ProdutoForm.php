@@ -15,7 +15,14 @@ use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
 
+/**
+ * Class ProdutoForm
+ * @package Application\Form
+ */
 class ProdutoForm extends Form{
+    /**
+     *
+     */
     public function __construct(){
         parent::__construct('produto');
 

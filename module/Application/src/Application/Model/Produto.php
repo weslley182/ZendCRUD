@@ -12,16 +12,44 @@ use Zend\InputFilter\InputFilterInterface;
 use Zend\InputFilter\InputFilterAwareInterface;
 
 
+/**
+ * Class Produto
+ * @package Application\Model
+ */
 class Produto implements InputFilterAwareInterface{
+    /**
+     * @var
+     */
     public $id;
+    /**
+     * @var
+     */
     public $nome;
+    /**
+     * @var
+     */
     public $preco;
+    /**
+     * @var
+     */
     public $foto;
+    /**
+     * @var
+     */
     public $descricao;
+    /**
+     * @var
+     */
     public $status;
 
+    /**
+     * @var
+     */
     protected $inputFilter;
 
+    /**
+     * @param $data
+     */
     public function exchangeArray($data){
         $this->id = (isset($data['id'])) ? $data['id'] : null;
         $this->nome = (isset($data['nome'])) ? $data['nome'] : null;
@@ -31,14 +59,24 @@ class Produto implements InputFilterAwareInterface{
         $this->status = (isset($data['status'])) ? $data['status'] : null;
     }
 
+    /**
+     * @return array
+     */
     public function getArrayCopy(){
         return get_object_vars($this);
     }
 
+    /**
+     * @param InputFilterInterface $inputFilter
+     * @throws \Exception
+     */
     public function setInputFilter(inputFilterInterface $inputFilter){
         throw new \Exception("Not Used");
     }
 
+    /**
+     * @return mixed
+     */
     public function getInputFilter(){
         if(!$this->inputFilter){
             $inputFilter = new InputFilter();

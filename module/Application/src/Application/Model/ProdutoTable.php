@@ -14,10 +14,20 @@ use Zend\Db\ResultSet\ResultSet;
 use Zend\Paginator\Adapter\DbSelect;
 use Zend\Paginator\Paginator;
 
+/**
+ * Class ProdutoTable
+ * @package Application\Model
+ */
 class ProdutoTable extends AbstractTableGateway{
 
+    /**
+     * @var string
+     */
     protected $table = 'produto';
 
+    /**
+     * @param Adapter $adapter
+     */
     public function __construct(Adapter $adapter){
         $this->adapter = $adapter;
         $this->resultSetPrototype = new ResultSet();
@@ -25,6 +35,11 @@ class ProdutoTable extends AbstractTableGateway{
         $this->initialize();
     }
 
+    /**
+     * @param int $currentPage
+     * @param int $countPerPage
+     * @return Paginator
+     */
     public function fetchAll($currentPage = 1, $countPerPage = 2){
         $select = new Select();
         $select->from($this->table)->order('nome');
@@ -37,6 +52,11 @@ class ProdutoTable extends AbstractTableGateway{
         return $paginator;
     }
 
+    /**
+     * @param $idProduto
+     * @return array|\ArrayObject|null
+     * @throws \Exception
+     */
     public function getProduto($idProduto){
         $idProduto = (int)$idProduto;
         $rowSet = $this->select(['id' => $idProduto]);
@@ -49,6 +69,10 @@ class ProdutoTable extends AbstractTableGateway{
         return $row;
     }
 
+    /**
+     * @param Produto $produto
+     * @throws \Exception
+     */
     public function saveProduto(Produto $produto){
         $data = [
             'nome' => $produto->nome,
