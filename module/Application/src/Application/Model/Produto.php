@@ -6,6 +6,7 @@
  * Time: 09:22
  */
 namespace Application\Model;
+
 use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\InputFilterInterface;
@@ -79,14 +80,15 @@ class Produto implements InputFilterAwareInterface{
      */
     public function getInputFilter(){
         if(!$this->inputFilter){
+
             $inputFilter = new InputFilter();
             $factory = new InputFactory();
 
             $inputFilter->add($factory->createInput([
                 'name' => 'id',
-                'required' => true,
+                'required' => false,
                 'filters' => [
-                    'name' => 'Int'
+                    ['name' => 'Int']
                 ]
             ]));
 
@@ -94,7 +96,7 @@ class Produto implements InputFilterAwareInterface{
                 'name' => 'nome',
                 'required' => true,
                 'filters' => [
-                    ['name' => 'StringTags'],
+                    ['name' => 'StripTags'],
                     ['name' => 'StringTrim']
                 ],
                 'validators' => [
@@ -113,7 +115,7 @@ class Produto implements InputFilterAwareInterface{
                 'name' => 'preco',
                 'required' => true,
                 'filters' => [
-                    ['name' => 'StringTags'],
+                    ['name' => 'StripTags'],
                     ['name' => 'StringTrim']
                 ]
             ]));
@@ -122,7 +124,7 @@ class Produto implements InputFilterAwareInterface{
                 'name' => 'foto',
                 'required' => false,
                 'filters' => [
-                    ['name' => 'StringTags'],
+                    ['name' => 'StripTags'],
                     ['name' => 'StringTrim']
                 ]
             ]));
@@ -131,7 +133,7 @@ class Produto implements InputFilterAwareInterface{
                 'name' => 'descricao',
                 'required' => false,
                 'filters' => [
-                    ['name' => 'StringTags'],
+                    ['name' => 'StripTags'],
                     ['name' => 'StringTrim']
                 ],
                 'validators' => [
@@ -160,13 +162,14 @@ class Produto implements InputFilterAwareInterface{
                 'name' => 'status',
                 'required' => true,
                 'filters' => [
-                    ['name' => 'StringTags'],
+                    ['name' => 'StripTags'],
                     ['name' => 'StringTrim']
                 ]
             ]));
 
             $this->inputFilter = $inputFilter;
         }
+
         return $this->$inputFilter;
     }
 

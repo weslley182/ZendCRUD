@@ -22,17 +22,17 @@ class ProdutosController extends AbstractActionController{
     /**
      * @var
      */
-    protected $produtoTale;
+    protected $produtoTable;
 
     /**
      * @return array|object
      */
-    public function getProdutoTale(){
-        if(!$this->produtoTale){
+    public function getProdutoTable(){
+        if(!$this->produtoTable){
             $sm = $this->getServiceLocator();
-            $this->produtoTale = $sm->get('produto_table');
+            $this->produtoTable = $sm->get('produto_table');
         }
-        return $this->produtoTale;
+        return $this->produtoTable;
     }
 
     /**
@@ -50,10 +50,13 @@ class ProdutosController extends AbstractActionController{
         $request = $this->getRequest();
 
         if($request->isPost()){
+            var_dump('teste2');
             $produto = new Produto();
-            $data = $request->getPost();
-            $form->setInputFilter($produto->getInputFilter());
 
+            $data = $request->getPost();
+
+            $form->setInputFilter($produto->getInputFilter());
+            var_dump('teste3');
             if($form->isValid()){
                 $produto->exchangeArray($data);
                 $this->getProdutoTale()->saveProduto($produto);
