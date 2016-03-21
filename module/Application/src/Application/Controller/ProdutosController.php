@@ -19,6 +19,11 @@ class ProdutosController extends AbstractActionController{
 
     public function cadastrarAction(){
         $form = new ProdutoForm();
+        $request = $this->getRequest();
+        if($request->isPost()){
+            $data = $request->getPost();
+            var_dump($data);
+        }
         $view = new ViewModel(['form' => $form]);
         $view->setTemplate('application/produtos/form.phtml');
         return $view;

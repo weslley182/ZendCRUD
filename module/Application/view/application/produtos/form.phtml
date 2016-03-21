@@ -82,6 +82,11 @@
             <td><?php echo $this->formElementErrors($form->get('status')) ?></td>
         </tr>
     </tbody>
+    <tbody>
+        <tr>
+            <td class="btn btn-primary"><?php echo $this->formElement($form->get('submit')) ?></td>
+        </tr>
+    </tbody>
 </table>
 
 <?php echo $this->form()->closeTag($form) ?>
