@@ -19,6 +19,9 @@ class ProdutosController extends AbstractActionController{
 
     public function cadastrarAction(){
         $form = new ProdutoForm();
+        $view = new ViewModel(['form' => $form]);
+        $view->setTemplate('application/produtos/form.phtml');
+        return $view;
     }
 
 }

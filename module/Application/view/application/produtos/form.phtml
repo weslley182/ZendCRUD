@@ -1,0 +1,87 @@
+<?php echo $this->form()->openTag($form) ?>
+
+<table>
+    <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('nome')) ?></td>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElement($form->get('nome')) ?></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElementErrors($form->get('nome')) ?></td>
+        </tr>
+    </tbody>
+
+    <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('preco')) ?></td>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElement($form->get('preco')) ?></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElementErrors($form->get('preco')) ?></td>
+        </tr>
+    </tbody>
+    <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('foto')) ?></td>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElement($form->get('foto')) ?></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElementErrors($form->get('foto')) ?></td>
+        </tr>
+    </tbody>
+    <thead>
+    <tr>
+        <td><?php echo $this->formLabel($form->get('descricao')) ?></td>
+    </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElement($form->get('descricao')) ?></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElementErrors($form->get('descricao')) ?></td>
+        </tr>
+    </tbody>
+    <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('status')) ?></td>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElement($form->get('status')) ?></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElementErrors($form->get('status')) ?></td>
+        </tr>
+    </tbody>
+</table>
+
+<?php echo $this->form()->closeTag($form) ?>

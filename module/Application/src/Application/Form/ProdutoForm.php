@@ -7,6 +7,7 @@
  */
 namespace Application\Form;
 
+use Zend\Form\Element\Button;
 use Zend\Form\Element\Checkbox;
 use Zend\Form\Element\File;
 use Zend\Form\Element\Hidden;
@@ -29,7 +30,7 @@ class ProdutoForm extends Form{
             ->setAttributes([
                 'style' => 'width:60px;'
             ]);
-        $foto = new File();
+        $foto = new File('foto');
         $foto->setLabel('Foto:')
             ->setAttributes([
                 'style' => 'width:150px;'
@@ -41,11 +42,11 @@ class ProdutoForm extends Form{
                 'style' => 'width:150px; heigth:100px;'
             ]);
 
-        $status = new Checkbox();
+        $status = new Checkbox('status');
         $status->setLabel('Status:')
             ->setValue(1);
 
-        $submit = new Button();
+        $submit = new Button('submit');
         $submit->setLabel('Cadastrar')
             ->setAttributes([
                 'type' => 'submit'
@@ -57,7 +58,7 @@ class ProdutoForm extends Form{
         $this->add($foto);
         $this->add($descricao);
         $this->add($status);
-        $this->add($submit);
+        $this->add($submit,['priority' => -100]);
 
     }
 }
